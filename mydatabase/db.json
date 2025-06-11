@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@sistema.com",
+      "userType": "Administrador",
+      "accessLevel": "1",
+      "role": "Admin",
+      "cpf": "12345678901",
+      "rg": "1234567890",
+      "phone": "(11) 1234-5678",
+      "mobile": "(11) 98765-4321",
+      "image": "",
+      "login": "admin",
+      "password": "$2b$12$lMkn.iSNx.qsp9CGaFGu.OhPwA8Wg18jw0XOqyKYokpmWl425CAkG",
+      "createdAt": "2024-01-15T10:00:00.000Z",
+      "updatedAt": "2024-01-15T10:00:00.000Z"
+    }
+  ],
+  "userPermissions": [
+    {
+      "id": "1",
+      "userId": "1",
+      "userType": "Administrador",
+      "accessLevel": 1,
+      "role": "Admin",
+      "createdAt": "2024-01-15T10:00:00.000Z",
+      "updatedAt": "2024-01-15T10:00:00.000Z"
+    }
+  ]
+}

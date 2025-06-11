@@ -1,0 +1,10 @@
+[x] criar pagina base do cliente
+[] criar lista de cliente
+[] criar tela de cadastro de clientes
+[] tela de compras de que o cliente fez na impresa
+[] tela de controle do contas a receber
+[] filtro cadastro de cliente
+[] tela imprimir ficha do clientes
+[] foto do cliente
+[] tela de enviar email
+[] tela de enviar mensagem de whatsApp
