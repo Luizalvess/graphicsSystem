@@ -110,10 +110,23 @@ module.exports = class AuthRegisterUserController {
       });
     } catch (error) {
       console.error("Erro ao salvar o usuário:", error);
+
+      // VERIFICAR SE O ERRO É DE VALIDAÇÃO DO MODELO
+      if (error.message && error.message.startsWith("Validation errors:")) {
+        return res.status(422).json({
+          message: "Erro de validação ao cadastrar usuário.",
+          // Remove "Validation errors: " and then split by ", "
+          errors: error.message
+            .substring("Validation errors: ".length)
+            .split(", "),
+        });
+      }
+
+      // Outros erros do servidor (manter o tratamento existente)
       res.status(500).json({
         message:
           "Ocorreu um erro ao tentar cadastrar o usuário, tente mais tarde!",
-        error: error.message || error,
+        error: error.message || error, // Use error.message se disponível
       });
     }
   }

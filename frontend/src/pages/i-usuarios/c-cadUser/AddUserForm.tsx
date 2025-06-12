@@ -202,7 +202,7 @@ export const AddUserForm: React.FC = () => {
         name: user.name,
         email: user.email,
         phone: user.phone || `(11) 0000-0000`, // Usar valor do formulário ou padrão
-        mobile: user.mobile, // Usar valor do formulário
+        mobile: user.mobile.replace(/\D/g, ""), // Remove non-digit characters
         cpf: user.cpf.replace(/\D/g, ""), // Remove máscara - apenas números
         rg: user.rg.replace(/\D/g, ""), // Remove máscara - apenas números
         login: user.login,

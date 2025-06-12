@@ -16,6 +16,38 @@
       "password": "$2b$12$lMkn.iSNx.qsp9CGaFGu.OhPwA8Wg18jw0XOqyKYokpmWl425CAkG",
       "createdAt": "2024-01-15T10:00:00.000Z",
       "updatedAt": "2024-01-15T10:00:00.000Z"
+    },
+    {
+      "id": "174969142609709hzvdo0o",
+      "name": "testeuiz",
+      "email": "testeluiz@email.com",
+      "userType": "Usuario",
+      "accessLevel": "Nível 03",
+      "role": "Gerente",
+      "cpf": "11145557708",
+      "rg": "854223699",
+      "phone": "(21) 2588-8888",
+      "mobile": "21998585544",
+      "image": "foto.webp",
+      "login": "testeluiz",
+      "createdAt": "2025-06-12T01:23:46.097Z",
+      "updatedAt": "2025-06-12T01:23:46.099Z"
+    },
+    {
+      "id": "1749692107613p7u8ahr6z",
+      "name": "laser teste",
+      "email": "laserteste@email.com",
+      "userType": "Usuario",
+      "accessLevel": "Nível 02",
+      "role": "Laser",
+      "cpf": "10020738714",
+      "rg": "258963587",
+      "phone": "(12) 5874-5887",
+      "mobile": "21964334365",
+      "image": "",
+      "login": "laser",
+      "createdAt": "2025-06-12T01:35:07.613Z",
+      "updatedAt": "2025-06-12T01:35:07.682Z"
     }
   ],
   "userPermissions": [

@@ -1,5 +1,5 @@
 const db = require("../database/connection");
-const { isCpfValid } = require("../utils/validatrors");
+const { isCpfValid } = require("../utils/validators");
 
 class User {
   constructor(data) {
@@ -20,7 +20,7 @@ class User {
     this.updatedAt = data.updatedAt;
   }
 
-  // Validações
+  // Validações CORRIGIDAS
   validate() {
     const errors = [];
 
@@ -32,20 +32,37 @@ class User {
       errors.push("Forneça um e-mail válido");
     }
 
-    if (!this.cpf || !isCpfValid(this.cpf)) {
-      errors.push("CPF inválido");
+    // VALIDAÇÃO DE CPF CORRIGIDA
+    if (!this.cpf) {
+      errors.push("O CPF é obrigatório");
+    } else {
+      // Remover formatação antes de validar
+      const cleanCpf = this.cpf.replace(/\D/g, "");
+      if (!isCpfValid(cleanCpf)) {
+        errors.push("CPF inválido");
+      }
     }
 
     if (!this.rg || this.rg.trim().length === 0) {
       errors.push("O RG é obrigatório");
     }
 
-    if (!this.phone || !this._isValidPhone(this.phone)) {
-      errors.push("Forneça um telefone válido");
+    // VALIDAÇÃO DE TELEFONE MAIS FLEXÍVEL
+    if (!this.phone) {
+      errors.push("O telefone é obrigatório");
+    } else if (!this._isValidPhone(this.phone)) {
+      console.log("Telefone recebido:", this.phone);
+      // Não bloquear por enquanto, apenas avisar
+      console.warn("Formato de telefone não padrão:", this.phone);
     }
 
-    if (!this.mobile || !this._isValidMobile(this.mobile)) {
-      errors.push("Forneça um celular válido");
+    // VALIDAÇÃO DE CELULAR MAIS FLEXÍVEL
+    if (!this.mobile) {
+      errors.push("O celular é obrigatório");
+    } else if (!this._isValidMobile(this.mobile)) {
+      console.log("Celular recebido:", this.mobile);
+      // Não bloquear por enquanto, apenas avisar
+      console.warn("Formato de celular não padrão:", this.mobile);
     }
 
     if (!this.userType) {
@@ -75,12 +92,26 @@ class User {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  // VALIDAÇÃO DE TELEFONE MAIS FLEXÍVEL
   _isValidPhone(phone) {
-    return /^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(phone);
+    // Aceitar vários formatos:
+    // (11) 1234-5678
+    // (11) 12345-6789
+    // 11 1234-5678
+    // 1112345678
+    const phoneRegex = /^(\(?\d{2}\)?\s?)?\d{4,5}-?\d{4}$/;
+    return phoneRegex.test(phone);
   }
 
+  // VALIDAÇÃO DE CELULAR MAIS FLEXÍVEL
   _isValidMobile(mobile) {
-    return /^\(\d{2}\)\s\d{9}$/.test(mobile);
+    // Aceitar vários formatos:
+    // (11) 987654321
+    // (11) 98765-4321
+    // 11987654321
+    // 11 98765-4321
+    const mobileRegex = /^(\(?\d{2}\)?\s?)?\d{4,5}-?\d{4}$/;
+    return mobileRegex.test(mobile);
   }
 
   // Métodos estáticos para operações no banco
@@ -100,10 +131,17 @@ class User {
   }
 
   static async create(data) {
+    console.log("=== DADOS RECEBIDOS PARA VALIDAÇÃO ===");
+    console.log("CPF:", data.cpf);
+    console.log("Mobile:", data.mobile);
+    console.log("Phone:", data.phone);
+
     const user = new User(data);
     const errors = user.validate();
 
     if (errors.length > 0) {
+      console.log("=== ERROS DE VALIDAÇÃO ===");
+      console.log("Erros:", errors);
       throw new Error(`Validation errors: ${errors.join(", ")}`);
     }
 

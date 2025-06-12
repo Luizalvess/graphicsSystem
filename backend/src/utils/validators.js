@@ -4,16 +4,22 @@ const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
 
 module.exports = {
   isCpfValid: (cpf) => {
+    console.log("=== VALIDANDO CPF ===");
+    console.log("CPF recebido:", cpf);
+
     // Remove caracteres não numéricos
     cpf = cpf.replace(/\D/g, "");
+    console.log("CPF limpo:", cpf);
 
     // Validação básica de tamanho
     if (cpf.length !== 11) {
+      console.log("CPF inválido: tamanho incorreto");
       return false;
     }
 
     // Validação de dígitos repetidos
     if (/^(\d)\1{10}$/.test(cpf)) {
+      console.log("CPF inválido: dígitos repetidos");
       return false;
     }
 
@@ -27,6 +33,7 @@ module.exports = {
       remainder = 0;
     }
     if (remainder !== parseInt(cpf.charAt(9))) {
+      console.log("CPF inválido: primeiro dígito verificador");
       return false;
     }
 
@@ -40,11 +47,11 @@ module.exports = {
       remainder = 0;
     }
     if (remainder !== parseInt(cpf.charAt(10))) {
+      console.log("CPF inválido: segundo dígito verificador");
       return false;
     }
 
+    console.log("CPF válido!");
     return true;
   },
-
-  // Adicione outras funções de validação aqui, como isRgValid, isEmailValid, etc.
 };
