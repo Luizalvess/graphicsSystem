@@ -61,6 +61,7 @@ export const Dashboard = () => {
           <Box
             sx={{
               height: "5%",
+              maxHeight: "40px",
               width: "100%",
               display: "flex",
               justifyContent: "space-between",
@@ -212,13 +213,13 @@ export const Dashboard = () => {
               alignItems: "center",
               width: "100%",
               height: "4%",
+              maxHeight: "10px",
             }}
           >
             <Box
               sx={{
                 width: "19.2%",
                 maxWidth: "280px",
-                padding: "0 0 0 0 ",
                 height: "100%",
                 display: "flex",
                 justifyContent: "center",
