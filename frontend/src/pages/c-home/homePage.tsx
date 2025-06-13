@@ -92,7 +92,7 @@ export const Home: React.FC<HomeProps> = ({ onScroll, homeRef }) => {
         height: "100%",
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        alignItems: "top",
         justifyContent: "left",
       }}
     >
@@ -101,19 +101,21 @@ export const Home: React.FC<HomeProps> = ({ onScroll, homeRef }) => {
       <Box
         ref={homeRef}
         sx={{
+          marginTop: "15px",
           display: "flex",
           alignItems: "top",
           justifyContent: "center",
-          width: "82%",
+          flex: "1",
+          maxWidth: "stretch",
           height: "100%",
           marginBottom: "-30px",
           overflow: "auto",
           "&::-webkit-scrollbar": {
-            width: "12px",
-            bgcolor: "primary.light",
+            // width: "none",
+            // bgcolor: "none",
             border: " 6px solid",
             borderColor: "primary.main",
-            borderRadius: "5px",
+            // borderRadius: "5px",
           },
           "&::-webkit-scrollbar-track": {
             backgroundColor: "none",
