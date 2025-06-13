@@ -1,5 +1,5 @@
 import { Photo } from "../component/photo";
-import { Box, Container } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import React, { useRef } from "react";
 
 export const ChatFavorite: React.FC = () => {
@@ -41,15 +41,16 @@ export const ChatFavorite: React.FC = () => {
       borderRadius={"20px"}
       overflow={"hidden"}
     >
-      <Container
+      <Stack
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
         sx={{
-          width: "100%",
+          width: "100vw",
           height: "100%",
+          flex: "1",
           overflowX: "auto",
           overflowY: "hidden",
           display: "flex",
@@ -78,7 +79,12 @@ export const ChatFavorite: React.FC = () => {
         <Photo />
         <Photo />
         <Photo />
-      </Container>
+        <Photo />
+        <Photo />
+        <Photo />
+        <Photo />
+        <Photo />
+      </Stack>
     </Box>
   );
 };
