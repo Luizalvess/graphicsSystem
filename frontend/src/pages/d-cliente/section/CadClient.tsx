@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   ButtonIcon,
   ButtonWhite,
@@ -7,7 +6,7 @@ import {
   CustomTextBox,
   CustomTextField,
   DateTextField,
-} from "../../../Components";
+} from "@/Components";
 import {
   Avatar,
   Box,
@@ -18,7 +17,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { FaCameraRetro, FaCheck, FaDeleteLeft } from "react-icons/fa6";
+import { FaCheck, FaDeleteLeft } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 import {
   FaCartPlus,
@@ -34,89 +33,9 @@ import {
   maskMobile,
   maskPhone,
   maskRGorCNH,
-} from "../../../shared/utils/mask";
-
-// import { useClient } from "../../../../shared/context/auth/AuthClientContext";
-// import { IClient } from "../../../../shared/state/clientTypes";
-
-// const initialClient: IClient = {
-//   person: 'FISICA',
-//   registerDate: new Date(), // Add the required registerDate
-//   name: '',
-//   corporateName: '',
-//   contact: '',
-//   phone: '',
-//   mobile: '',
-//   whatsapp: '',
-//   dateOfBirth: null,
-//   gender: '',
-//   stateRegistration: '',
-//   document: '',
-//   isSimpleNational: false,
-//   category: 'CONSUMIDOR',
-//   address: {
-//     cep: '',
-//     street: '',
-//     number: '',
-//     complement: '',
-//     neighborhood: '',
-//     city: '',
-//     state: ''
-//   },
-//   emails: {
-//     commercial: '',
-//     invoice: '',
-//     billing: ''
-//   }
-// };
+} from "@/shared/utils/mask";
 
 export const CadClient: React.FC = () => {
-  //   const [client, setClient] = useState(initialClient);
-  //   const [loading, setLoading] = useState(false);
-  //   const { createClient } = useClient();
-
-  //   const validateForm = () => {
-  //     if (!client.name || !client.person || !client.contact || !client.document) {
-  //       return "Campos obrigatórios não preenchidos";
-  //     }
-  //     if (client.emails.commercial && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(client.emails.commercial)) {
-  //       return "Email comercial inválido";
-  //     }
-  //     return null;
-  //   };
-
-  //   const handleSubmit = async () => {
-  //     const error = validateForm();
-  //     if (error) {
-  //       // Show error message
-  //       return;
-  //     }
-
-  //     setLoading(true);
-  //     try {
-  //       await createClient(client);
-  //       handleReset();
-  //       // Show success message
-  //     } catch (error) {
-  //       // Show error message
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   const handleReset = () => {
-  //     setClient(initialClient);
-  //   };
-
-  //   const handleDateChange = (name: string) => (date: Date | null) => {
-  //     setClient(prev => ({
-  //       ...prev,
-  //       [name]: date
-  //     }));
-  //   };
-
-  // };
-
   return (
     <Box
       sx={{
@@ -1333,9 +1252,18 @@ export const CadClient: React.FC = () => {
                         >
                           forma de pagamento
                         </InputLabel>
-                        <CustomSelect sx={{ width: "19VW" }}>
-                          <MenuItem value="Usuário">maria de fatima</MenuItem>
-                          <MenuItem value="Visitante">Paula dutra</MenuItem>
+                        <CustomSelect sx={{ width: "21VW" }}>
+                          <MenuItem value="credito">Cartão de crédito</MenuItem>
+                          <MenuItem value="debito">Cartão de débito</MenuItem>
+                          <MenuItem value="pix">Pix</MenuItem>
+                          <MenuItem value="boleto">Boleto bancário</MenuItem>
+                          <MenuItem value="dinheiro">Dinheiro</MenuItem>
+                          <MenuItem value="transferencia">
+                            Transferência bancária (TED/DOC)
+                          </MenuItem>
+                          <MenuItem value="carteiraDigital">
+                            Carteira digital / apps de pagamento
+                          </MenuItem>
                         </CustomSelect>
                       </FormControl>
                     </Stack>

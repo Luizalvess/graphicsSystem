@@ -1,5 +1,9 @@
 [x] criar pagina base do cliente
-[] criar lista de cliente
+[] criar teal lista de cliente
+|----poder ordenar cliente
+|----poder pesquisar clientes
+|----editar cliente
+|----excluir cliente
 [] criar tela de cadastro de clientes
 [] tela de compras de que o cliente fez na impresa
 [] tela de controle do contas a receber
