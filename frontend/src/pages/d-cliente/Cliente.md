@@ -1,3 +1,7 @@
+passo a passo para criar o cadastro de clientes
+backend
+
+Frontend-------------------
 [x] criar pagina base do cliente
 [] criar teal lista de cliente
 |----poder ordenar cliente
